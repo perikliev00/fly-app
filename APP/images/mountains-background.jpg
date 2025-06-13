@@ -1,0 +1,24 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#005299;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00264d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#mountainGrad)"/>
+  
+  <!-- Mountains in the background -->
+  <polygon points="0,400 200,200 400,350 600,150 800,300 1000,100 1200,250 1200,800 0,800" fill="#003366" opacity="0.7"/>
+  <polygon points="0,450 300,250 500,400 700,200 900,350 1100,150 1200,300 1200,800 0,800" fill="#002244" opacity="0.8"/>
+  
+  <!-- Lake -->
+  <ellipse cx="600" cy="650" rx="500" ry="100" fill="#0077cc" opacity="0.6"/>
+  <ellipse cx="600" cy="650" rx="450" ry="80" fill="#0088ee" opacity="0.4"/>
+  
+  <!-- Sun/Moon -->
+  <circle cx="900" cy="150" r="60" fill="#ff9933" opacity="0.7"/>
+  <circle cx="900" cy="150" r="55" fill="#ffcc66" opacity="0.5"/>
+  
+  <!-- Mountain Reflection on Lake -->
+  <polygon points="300,650 500,630 700,650 900,630 1100,650 900,670 700,650 500,670" fill="#003366" opacity="0.3"/>
+</svg>

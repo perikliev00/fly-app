@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Book your flights with SkyJet - affordable and comfortable air travel to destinations worldwide">
+    <meta name="theme-color" content="#0066cc">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>SkyJet - Book Your Flight</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="SkyJet Logo" id="logo-placeholder">
+                <span class="logo-text">SkyJet</span>
+            </div>
+            
+            <nav class="main-nav">
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-trigger">FLIGHTS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Book Flight</a></li>
+                            <li><a href="#">Flight Status</a></li>
+                            <li><a href="#">Check-In</a></li>
+                            <li><a href="#">Flight Schedules</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-trigger">HOTELS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Book Hotel</a></li>
+                            <li><a href="#">Hotel + Flight</a></li>
+                            <li><a href="#">Last Minute Deals</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-trigger">PACKAGES <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Vacation Packages</a></li>
+                            <li><a href="#">City Breaks</a></li>
+                            <li><a href="#">Family Packages</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-trigger">SKYJET+ SERVICES <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Loyalty Program</a></li>
+                            <li><a href="#">Premium Services</a></li>
+                            <li><a href="#">Business Travel</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="dropdown-trigger">HELP CENTER <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Baggage Information</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">MANAGE BOOKING</a></li>
+                    <li class="login-item"><a href="#"><i class="fas fa-user"></i> LOGIN</a></li>
+                    <li class="lang-item">
+                        <a href="#" class="dropdown-trigger"><i class="fas fa-globe"></i> EN <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu lang-dropdown">
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">Español</a></li>
+                            <li><a href="#">Français</a></li>
+                            <li><a href="#">Deutsch</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="search-section">
+            <div class="container">
+                <div class="search-container">
+                    <div class="tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active"><i class="fas fa-plane"></i> Flights</button>
+                            <button class="tab-btn"><i class="fas fa-hotel"></i> Hotels</button>
+                            <button class="tab-btn"><i class="fas fa-car"></i> Car Rentals</button>
+                        </div>
+                        <div class="discount-badge">-10%</div>
+                    </div>
+
+                    <div class="search-options">
+                        <div class="trip-type">
+                            <label class="radio-container">
+                                <input type="radio" name="trip-type" checked>
+                                <span class="radio-custom"></span>
+                                Round Trip
+                            </label>
+                            <label class="radio-container">
+                                <input type="radio" name="trip-type">
+                                <span class="radio-custom"></span>
+                                One Way
+                            </label>
+                        </div>
+
+                        <div class="search-fields">
+                            <div class="field-group">
+                                <div class="input-field origin">
+                                    <label for="origin">Departure</label>
+                                    <input type="text" id="origin" placeholder="City or airport">
+                                </div>
+                                <div class="input-field destination">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" id="destination" placeholder="City or airport">
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <div class="input-field date">
+                                    <label for="depart-date">Departing</label>
+                                    <div class="date-display">
+                                        <span class="date-label">15 June 2025</span>
+                                    </div>
+                                </div>
+                                <div class="input-field date">
+                                    <label for="return-date">Returning</label>
+                                    <div class="date-display">
+                                        <span class="date-label">Round Trip</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field-group passengers">
+                                <div class="input-field">
+                                    <label>Travelers</label>
+                                    <div class="passenger-display">
+                                        <span>1 Adult</span>
+                                    </div>
+                                </div>
+                                <button class="search-btn">
+                                    <i class="fas fa-search"></i> Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="promo-banner">
+            <div class="promo-content">
+                <h1>DISCOVER THE BEAUTY OF<br>MOUNTAIN LAKES</h1>
+                <p>Fly to Mountain Lakes - where pristine waters meet breathtaking peaks for your next adventure!</p>
+                <a href="#" class="cta-button">Book Now <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="images/logo.png" alt="SkyJet Logo" class="footer-logo-img">
+                            <span>SkyJet</span>
+                        </div>
+                        <p class="footer-about">Experience seamless travel with SkyJet. We connect you to over 150 destinations worldwide with comfort and reliability.</p>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Popular Destinations</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">New York</a></li>
+                            <li><a href="#">London</a></li>
+                            <li><a href="#">Paris</a></li>
+                            <li><a href="#">Tokyo</a></li>
+                            <li><a href="#">Mountain Lakes</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Information</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Baggage Information</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Travel Services</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Flight Booking</a></li>
+                            <li><a href="#">Hotel Reservations</a></li>
+                            <li><a href="#">Car Rental</a></li>
+                            <li><a href="#">Travel Insurance</a></li>
+                            <li><a href="#">SkyJet+ Membership</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe for travel deals and offers</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Your email address">
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                        <div class="app-buttons">
+                            <a href="#" class="app-button" aria-label="Download on the App Store">
+                                <i class="fab fa-apple"></i> App Store
+                            </a>
+                            <a href="#" class="app-button" aria-label="Get it on Google Play">
+                                <i class="fab fa-google-play"></i> Google Play
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 SkyJet Airlines. All rights reserved.</p>
+                    <div class="payment-methods">
+                        <span>Payment Methods:</span>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>

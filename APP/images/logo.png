@@ -1,0 +1,15 @@
+<svg width="200" height="60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; font-size: 24px; fill: white; }
+  </style>
+  
+  <!-- Logo background -->
+  <rect x="0" y="0" width="60" height="60" rx="8" fill="#0066cc"/>
+  
+  <!-- Plane symbol -->
+  <path d="M15,30 L45,20 L40,30 L45,40 L15,30" fill="white"/>
+  <circle cx="42" cy="30" r="5" fill="#ff6600"/>
+  
+  <!-- Company name -->
+  <text x="70" y="36" class="text">SkyJet</text>
+</svg>

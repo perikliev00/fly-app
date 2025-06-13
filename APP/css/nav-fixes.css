@@ -1,0 +1,57 @@
+/* Navigation dropdown fixes */
+/* Desktop navigation dropdowns */
+@media (min-width: 769px) {
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        min-width: 200px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+        z-index: 100;
+        display: none;
+    }
+    
+    .has-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    
+    .has-dropdown:hover .dropdown-trigger i {
+        transform: rotate(180deg);
+        transition: transform 0.3s;
+    }
+    
+    .dropdown-menu a {
+        color: #333;
+        padding: 12px 15px;
+        display: block;
+        transition: background-color 0.2s;
+    }
+    
+    .dropdown-menu a:hover {
+        background-color: rgba(0, 102, 204, 0.05);
+        color: var(--primary-color);
+    }
+    
+    .lang-dropdown {
+        right: 0;
+        left: auto;
+    }
+}
+
+/* Mobile navigation menu */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        background-color: rgba(0, 0, 0, 0.1);
+        box-shadow: none;
+        border-radius: 0;
+        display: none;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+    }
+}
