@@ -689,6 +689,10 @@ footer {
         font-size: 20px;
     }
     
+    .site-header .container {
+        padding: 0 10px;
+    }
+    
     .tabs {
         flex-direction: column;
         align-items: stretch;
@@ -702,16 +706,41 @@ footer {
     }
     
     .tab-btn {
-        padding: 10px;
+        padding: 10px 5px;
         font-size: 14px;
         text-align: center;
         justify-content: center;
+    }
+    
+    .tab-btn i {
+        margin-right: 5px;
     }
     
     .discount-badge {
         margin-top: 10px;
         text-align: center;
         align-self: center;
+    }
+    
+    .search-options {
+        padding: 15px 10px;
+    }
+    
+    .trip-type {
+        justify-content: space-between;
+        gap: 10px;
+    }
+    
+    .input-field label {
+        font-size: 13px;
+    }
+    
+    .input-field input,
+    .date-display,
+    .passenger-display {
+        font-size: 14px;
+        padding: 10px;
+        height: 40px;
     }
     
     .footer-grid {
@@ -729,6 +758,94 @@ footer {
     
     .app-buttons {
         flex-direction: column;
+    }
+    
+    .promo-content h1 {
+        font-size: 32px;
+    }
+    
+    .promo-content p {
+        font-size: 16px;
+    }
+    
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 400px) {
+    .logo img, 
+    #logo-placeholder {
+        height: 30px;
+        width: 30px;
+    }
+    
+    .logo-text {
+        font-size: 18px;
+    }
+    
+    .menu-toggle {
+        font-size: 20px;
+    }
+    
+    .tab-btn {
+        padding: 8px 5px;
+        font-size: 12px;
+    }
+    
+    .tab-btn i {
+        font-size: 14px;
+        margin-right: 2px;
+    }
+    
+    .radio-container {
+        font-size: 14px;
+        padding-left: 25px;
+    }
+    
+    .radio-custom {
+        height: 16px;
+        width: 16px;
+    }
+    
+    .radio-container input:checked ~ .radio-custom::after {
+        top: 3px;
+        left: 3px;
+        width: 8px;
+        height: 8px;
+    }
+    
+    .field-group {
+        gap: 10px;
+    }
+    
+    .search-btn {
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .promo-content h1 {
+        font-size: 24px;
+    }
+    
+    .promo-content p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .footer-column h3 {
+        font-size: 16px;
+    }
+    
+    .payment-methods i {
+        font-size: 20px;
     }
 }
 

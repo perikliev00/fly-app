@@ -1,0 +1,113 @@
+/* Small screens form improvements */
+
+.enhanced-tap-target {
+    position: relative; /* For touch feedback */
+}
+
+.enhanced-tap-target::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: inherit;
+}
+
+.enhanced-tap-target.touch-active::after {
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 1;
+}
+
+.touch-device input,
+.touch-device button,
+.touch-device .date-display,
+.touch-device .passenger-display,
+.touch-device .dropdown-trigger,
+.touch-device .cta-button {
+    cursor: pointer; /* Visual cue for touch devices */
+}
+
+/* Compact dropdown style for very small screens */
+.compact-dropdown {
+    font-size: 12px;
+}
+
+.compact-dropdown a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Form focus improvements for small screens */
+@media (max-width: 375px) {
+    /* Better focus indicators for touch */
+    input:focus,
+    .date-display:focus,
+    .passenger-display:focus {
+        outline: 2px solid var(--secondary-color);
+        outline-offset: 1px;
+    }
+    
+    /* Prevent fixed positioning on small screens with virtual keyboards */
+    .search-section {
+        position: relative;
+    }
+    
+    /* Adjust field sizes for small screens */
+    .input-field {
+        margin-bottom: 8px;
+    }
+    
+    /* Improve readability of placeholder text */
+    ::placeholder {
+        opacity: 0.7;
+    }
+    
+    /* Enhanced buttons */
+    .search-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Adjust touch targets without changing visuals too much */
+    .radio-container {
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+/* iPhone SE, Galaxy Fold, and other ultra small screens */
+@media (max-width: 320px) {
+    /* Switch to stacked layout for trip type radios */
+    .trip-type {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .radio-container {
+        margin-bottom: 5px;
+    }
+    
+    /* Optimize field display */
+    .search-fields {
+        padding: 5px;
+    }
+    
+    /* Make input text slightly smaller but still readable */
+    .input-field input, 
+    .date-display, 
+    .passenger-display {
+        font-size: 12px;
+    }
+    
+    /* Apply larger touch area to search button */
+    .search-btn {
+        min-height: 40px; /* ensure minimum touch target size */
+    }
+}

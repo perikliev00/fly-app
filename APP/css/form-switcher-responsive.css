@@ -1,0 +1,51 @@
+/* Small screen adaptations for form switching */
+@media (max-width: 576px) {
+    .tab-btn {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .tab-btn i {
+        margin-right: 3px;
+    }
+    
+    /* Ensure form fields stack nicely on small screens */
+    #hotel-form .field-group,
+    #car-form .field-group {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 375px) {
+    .tab-btn {
+        font-size: 12px;
+        padding: 8px 5px;
+    }
+    
+    .tab-btn i {
+        margin-right: 2px;
+    }
+    
+    /* Additional spacing adjustments */
+    .search-fields {
+        padding: 10px 5px;
+    }
+}
+
+@media (max-width: 320px) {
+    .tab-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        flex: 1 0 auto;
+        text-align: center;
+        padding: 6px 4px;
+        font-size: 11px;
+    }
+    
+    .tab-btn i {
+        font-size: 12px;
+    }
+}

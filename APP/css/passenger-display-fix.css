@@ -1,0 +1,61 @@
+/* Passenger display improvements */
+.passenger-display {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.passenger-display:hover {
+    border-color: var(--primary-color);
+    background-color: #f9fbff;
+}
+
+.passenger-display i.fas.fa-user,
+.passenger-display i.fas.fa-users,
+.passenger-display i.fas.fa-car {
+    color: #666;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.passenger-display i.fas.fa-chevron-down {
+    margin-left: auto;
+    color: #999;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.passenger-display:hover i.fas.fa-chevron-down {
+    transform: translateY(2px);
+    color: var(--primary-color);
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .passenger-display {
+        padding: 8px 12px;
+    }
+    
+    .passenger-display i.fas.fa-user,
+    .passenger-display i.fas.fa-users,
+    .passenger-display i.fas.fa-car {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .passenger-display {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+}

@@ -10,6 +10,19 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add active class to clicked button
             this.classList.add('active');
+            
+            // Hide all form content
+            const formContents = document.querySelectorAll('.form-content');
+            formContents.forEach(form => form.classList.remove('active'));
+            
+            // Show the selected form
+            const targetFormId = this.getAttribute('data-form');
+            if (targetFormId) {
+                const targetForm = document.getElementById(targetFormId);
+                if (targetForm) {
+                    targetForm.classList.add('active');
+                }
+            }
         });
         
         // Add touch events for mobile
@@ -38,14 +51,36 @@ document.addEventListener('DOMContentLoaded', function() {
         display.addEventListener('touchend', function() {
             this.classList.remove('touch-active');
         }, { passive: true });
-    });
-
-    // Passenger selection placeholder functionality
-    const passengerDisplay = document.querySelector('.passenger-display');
+    });    // Passenger selection functionality
+    const passengerDisplays = document.querySelectorAll('.passenger-display');
     
-    if (passengerDisplay) {
-        passengerDisplay.addEventListener('click', function() {
-            alert('Passenger selection would open here in a real application');
+    if (passengerDisplays.length > 0) {
+        passengerDisplays.forEach(display => {
+            display.addEventListener('click', function() {
+                // Show an enhanced UI instead of a basic alert
+                const formType = this.closest('.form-content').id;
+                let message = '';
+                
+                if (formType === 'flight-form') {
+                    message = 'Select number of adults, children, and infants';
+                } else if (formType === 'hotel-form') {
+                    message = 'Select number of rooms and guests';
+                } else if (formType === 'car-form') {
+                    message = 'Select your preferred car type';
+                }
+                
+                // Show a better UI instead of alert in a real application
+                alert(message);
+                
+                // Animate the dropdown icon
+                const icon = this.querySelector('.fa-chevron-down');
+                if (icon) {
+                    icon.style.transform = 'rotate(180deg)';
+                    setTimeout(() => {
+                        icon.style.transform = 'rotate(0)';
+                    }, 1000);
+                }
+            });
         });
     }
 
@@ -107,30 +142,52 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Mobile dropdown functionality (when screen width <= 768px)
-    if (window.innerWidth <= 768) {
-        dropdownTriggers.forEach(trigger => {
-            trigger.addEventListener('click', function(e) {
-                e.preventDefault();
+      // Mobile dropdown functionality
+    function setupMobileDropdowns() {
+        if (window.innerWidth <= 768) {
+            dropdownTriggers.forEach(trigger => {
+                // Remove any previous event listeners first by cloning and replacing
+                const newTrigger = trigger.cloneNode(true);
+                if (trigger.parentNode) {
+                    trigger.parentNode.replaceChild(newTrigger, trigger);
+                }
                 
-                const dropdownMenu = this.nextElementSibling;
-                
-                // Close all other dropdowns
-                dropdownTriggers.forEach(otherTrigger => {
-                    if (otherTrigger !== trigger) {
-                        const otherDropdown = otherTrigger.nextElementSibling;
-                        if (otherDropdown && otherDropdown.classList.contains('show')) {
-                            otherDropdown.classList.remove('show');
+                newTrigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const dropdownMenu = this.nextElementSibling;
+                    const icon = this.querySelector('i');
+                    
+                    // Close all other dropdowns
+                    dropdownTriggers.forEach(otherTrigger => {
+                        if (otherTrigger !== newTrigger) {
+                            const otherDropdown = otherTrigger.nextElementSibling;
+                            const otherIcon = otherTrigger.querySelector('i');
+                            
+                            if (otherDropdown && otherDropdown.classList.contains('show')) {
+                                otherDropdown.classList.remove('show');
+                                if (otherIcon) {
+                                    otherIcon.style.transform = '';
+                                }
+                            }
                         }
+                    });
+                    
+                    // Toggle this dropdown
+                    dropdownMenu.classList.toggle('show');
+                    
+                    // Toggle icon rotation
+                    if (icon) {
+                        icon.style.transform = dropdownMenu.classList.contains('show') ? 'rotate(180deg)' : '';
                     }
                 });
-                
-                // Toggle this dropdown
-                dropdownMenu.classList.toggle('show');
             });
-        });
+        }
     }
+    
+    // Initial setup
+    setupMobileDropdowns();
     
     // Close mobile menu and dropdowns when window is resized to desktop
     window.addEventListener('resize', function() {
@@ -144,19 +201,52 @@ document.addEventListener('DOMContentLoaded', function() {
                 menu.classList.remove('show');
             });
         }
-    });
-    
-    // Newsletter form validation
+    });    // Newsletter form validation with improved feedback
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
+        const emailInput = newsletterForm.querySelector('.newsletter-input');
+        const submitButton = newsletterForm.querySelector('.newsletter-submit');
+        
+        // Add focus/blur effects
+        if (emailInput) {
+            emailInput.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+                if (submitButton) {
+                    submitButton.style.color = 'var(--primary-color)';
+                }
+            });
+            
+            emailInput.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+                if (submitButton) {
+                    submitButton.style.color = '';
+                }
+            });
+        }
+        
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]');
+            
             if (emailInput && emailInput.value.trim()) {
-                alert('Thank you for subscribing to our newsletter!');
-                emailInput.value = '';
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailRegex.test(emailInput.value.trim())) {
+                    // Success feedback
+                    alert('Thank you for subscribing to our newsletter!');
+                    emailInput.value = '';
+                    emailInput.classList.remove('error');
+                } else {
+                    // Error feedback for invalid format
+                    alert('Please enter a valid email address format');
+                    emailInput.classList.add('error');
+                }
             } else {
-                alert('Please enter a valid email address');
+                // Error feedback for empty field
+                alert('Please enter your email address');
+                if (emailInput) {
+                    emailInput.classList.add('error');
+                    emailInput.focus();
+                }
             }
         });
     }

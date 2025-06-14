@@ -1,0 +1,103 @@
+/* Mobile newsletter button fix - complete overhaul */
+
+/* IMPORTANT: These styles use !important to override any other styles */
+
+/* Wrapper to contain the form */
+.newsletter-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: relative !important;
+    display: block !important;
+}
+
+/* Base newsletter form layout */
+.newsletter-form {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    border-radius: 4px !important;
+    overflow: visible !important; /* Changed to visible to prevent button cutoff */
+    box-shadow: none !important;
+}
+
+/* Input field styling */
+.newsletter-input {
+    flex: 1 !important;
+    width: auto !important;
+    padding: 12px 15px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-right: none !important;
+    font-size: 14px !important;
+    color: #333 !important;
+    background-color: white !important;
+    border-radius: 4px 0 0 4px !important;
+    height: auto !important;
+    margin: 0 !important;
+}
+
+/* Button styling - completely overridden */
+.newsletter-submit {
+    position: static !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: 80px !important;
+    background-color: #ff6600 !important; /* Using the direct hex color */
+    color: white !important;
+    border: 1px solid #ff6600 !important;
+    padding: 12px 15px !important;
+    cursor: pointer !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    border-radius: 0 4px 4px 0 !important;
+    display: block !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+}
+
+/* Button hover state */
+.newsletter-submit:hover {
+    background-color: #e05c00 !important;
+}
+
+/* Very small screens (phones) */
+@media (max-width: 480px) {
+    .newsletter-form {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+    }
+    
+    .newsletter-input {
+        padding: 10px 12px !important;
+        font-size: 13px !important;
+    }
+    
+    .newsletter-submit {
+        padding: 10px 15px !important;
+        font-size: 13px !important;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+    .newsletter-form {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-gap: 8px !important;
+    }
+    
+    .newsletter-input {
+        border-radius: 4px !important;
+        border-right: 1px solid #e0e0e0 !important;
+        width: 100% !important;
+    }
+    
+    .newsletter-submit {
+        border-radius: 4px !important;
+        width: 100% !important;
+    }
+}

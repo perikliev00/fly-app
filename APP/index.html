@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <meta name="description" content="Book your flights with SkyJet - affordable and comfortable air travel to destinations worldwide">
     <meta name="theme-color" content="#0066cc">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="format-detection" content="telephone=no">
-    <title>SkyJet - Book Your Flight</title>    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/combined-styles.css">
+    <title>SkyJet - Book Your Flight</title>    <link rel="icon" type="image/x-icon" href="images/favicon.ico">    <link rel="stylesheet" href="css/combined-styles.css">
+    <link rel="stylesheet" href="css/extra-small-screens.css">
+    <link rel="stylesheet" href="css/tiny-screen-forms.css">
+    <link rel="stylesheet" href="css/destinations.css">
+    <link rel="stylesheet" href="css/promo-box.css">
+    <link rel="stylesheet" href="css/form-switcher.css">
+    <link rel="stylesheet" href="css/form-switcher-responsive.css">    <link rel="stylesheet" href="css/passenger-display-fix.css">    <link rel="stylesheet" href="css/newsletter-fix.css">
+    <link rel="stylesheet" href="css/mobile-newsletter-fix.css">
+    <link rel="stylesheet" href="css/newsletter-button-mobile.css">
+    <link rel="stylesheet" href="css/background-image.css">
+    <link rel="stylesheet" href="css/parallax-banner.css">
+    <link rel="stylesheet" href="css/direct-background.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- Background images will be loaded by JavaScript -->
+    
     <header class="site-header">
         <div class="container">
             <div class="logo">
@@ -85,79 +96,302 @@
     <main>
         <div class="search-section">
             <div class="container">
-                <div class="search-container">
-                    <div class="tabs">
+                <div class="search-container">                    <div class="tabs">
                         <div class="tab-buttons">
-                            <button class="tab-btn active"><i class="fas fa-plane"></i> Flights</button>
-                            <button class="tab-btn"><i class="fas fa-hotel"></i> Hotels</button>
-                            <button class="tab-btn"><i class="fas fa-car"></i> Car Rentals</button>
+                            <button class="tab-btn active" data-form="flight-form"><i class="fas fa-plane"></i> Flights</button>
+                            <button class="tab-btn" data-form="hotel-form"><i class="fas fa-hotel"></i> Hotels</button>
+                            <button class="tab-btn" data-form="car-form"><i class="fas fa-car"></i> Car Rentals</button>
                         </div>
-                        <div class="discount-badge">-10%</div>
-                    </div>
+                    </div>                    <div class="search-options">
+                        <!-- Flight Form -->
+                        <div id="flight-form" class="form-content active">
+                            <div class="trip-type">
+                                <label class="radio-container">
+                                    <input type="radio" name="trip-type" checked>
+                                    <span class="radio-custom"></span>
+                                    Round Trip
+                                </label>
+                                <label class="radio-container">
+                                    <input type="radio" name="trip-type">
+                                    <span class="radio-custom"></span>
+                                    One Way
+                                </label>
+                            </div>
 
-                    <div class="search-options">
-                        <div class="trip-type">
-                            <label class="radio-container">
-                                <input type="radio" name="trip-type" checked>
-                                <span class="radio-custom"></span>
-                                Round Trip
-                            </label>
-                            <label class="radio-container">
-                                <input type="radio" name="trip-type">
-                                <span class="radio-custom"></span>
-                                One Way
-                            </label>
-                        </div>
-
-                        <div class="search-fields">
-                            <div class="field-group">
-                                <div class="input-field origin">
-                                    <label for="origin">Departure</label>
-                                    <input type="text" id="origin" placeholder="City or airport">
+                            <div class="search-fields">
+                                <div class="field-group">
+                                    <div class="input-field origin">
+                                        <label for="flight-origin">Departure</label>
+                                        <input type="text" id="flight-origin" placeholder="City or airport">
+                                    </div>
+                                    <div class="input-field destination">
+                                        <label for="flight-destination">Destination</label>
+                                        <input type="text" id="flight-destination" placeholder="City or airport">
+                                    </div>
                                 </div>
-                                <div class="input-field destination">
-                                    <label for="destination">Destination</label>
-                                    <input type="text" id="destination" placeholder="City or airport">
+                                <div class="field-group">
+                                    <div class="input-field date">
+                                        <label for="flight-depart-date">Departing</label>
+                                        <div class="date-display">
+                                            <span class="date-label">15 June 2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-field date">
+                                        <label for="flight-return-date">Returning</label>
+                                        <div class="date-display">
+                                            <span class="date-label">Round Trip</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group passengers">                                    <div class="input-field">
+                                        <label>Travelers</label>
+                                        <div class="passenger-display">
+                                            <i class="fas fa-user"></i> <span>1 Adult</span>
+                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                        </div>
+                                    </div>
+                                    <button class="search-btn">
+                                        <i class="fas fa-search"></i> Search Flights
+                                    </button>
                                 </div>
                             </div>
-                            <div class="field-group">
-                                <div class="input-field date">
-                                    <label for="depart-date">Departing</label>
-                                    <div class="date-display">
-                                        <span class="date-label">15 June 2025</span>
+                        </div>
+
+                        <!-- Hotel Form -->
+                        <div id="hotel-form" class="form-content">
+                            <div class="search-fields">
+                                <div class="field-group">
+                                    <div class="input-field destination">
+                                        <label for="hotel-destination">Destination</label>
+                                        <input type="text" id="hotel-destination" placeholder="City or hotel name">
                                     </div>
                                 </div>
-                                <div class="input-field date">
-                                    <label for="return-date">Returning</label>
-                                    <div class="date-display">
-                                        <span class="date-label">Round Trip</span>
+                                <div class="field-group">
+                                    <div class="input-field date">
+                                        <label for="hotel-check-in">Check-in</label>
+                                        <div class="date-display">
+                                            <span class="date-label">15 June 2025</span>
+                                        </div>
                                     </div>
+                                    <div class="input-field date">
+                                        <label for="hotel-check-out">Check-out</label>
+                                        <div class="date-display">
+                                            <span class="date-label">22 June 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group">                                    <div class="input-field">
+                                        <label>Rooms & Guests</label>
+                                        <div class="passenger-display">
+                                            <i class="fas fa-users"></i> <span>1 Room, 2 Guests</span>
+                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                        </div>
+                                    </div>
+                                    <button class="search-btn">
+                                        <i class="fas fa-search"></i> Search Hotels
+                                    </button>
                                 </div>
                             </div>
-                            <div class="field-group passengers">
-                                <div class="input-field">
-                                    <label>Travelers</label>
-                                    <div class="passenger-display">
-                                        <span>1 Adult</span>
+                        </div>
+
+                        <!-- Car Rental Form -->
+                        <div id="car-form" class="form-content">
+                            <div class="search-fields">
+                                <div class="field-group">
+                                    <div class="input-field origin">
+                                        <label for="car-pickup">Pick-up Location</label>
+                                        <input type="text" id="car-pickup" placeholder="City or airport">
                                     </div>
                                 </div>
-                                <button class="search-btn">
-                                    <i class="fas fa-search"></i> Search
-                                </button>
+                                <div class="field-group">
+                                    <div class="input-field date">
+                                        <label for="car-pickup-date">Pick-up Date</label>
+                                        <div class="date-display">
+                                            <span class="date-label">15 June 2025</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-field date">
+                                        <label for="car-return-date">Return Date</label>
+                                        <div class="date-display">
+                                            <span class="date-label">22 June 2025</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field-group">                                    <div class="input-field">
+                                        <label>Car Type</label>
+                                        <div class="passenger-display">
+                                            <i class="fas fa-car"></i> <span>Economy</span>
+                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                        </div>
+                                    </div>
+                                    <button class="search-btn">
+                                        <i class="fas fa-search"></i> Search Cars
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="promo-banner">
+        </div>        <div class="promo-banner">
+            <!-- Background image will be loaded by JavaScript -->
             <div class="promo-content">
                 <h1>DISCOVER THE BEAUTY OF<br>MOUNTAIN LAKES</h1>
                 <p>Fly to Mountain Lakes - where pristine waters meet breathtaking peaks for your next adventure!</p>
                 <a href="#" class="cta-button">Book Now <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
+
+        <section class="destinations-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>Explore Direct Flights From Your City</h2>
+                    <p>Discover our most popular destinations with affordable flights just a click away</p>
+                </div>
+                
+                <div class="destinations-grid">
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1493707553966-283afac8c358" alt="Rome">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Rome</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$99.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1516546453174-5e1098a4b4af" alt="Barcelona">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Barcelona</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$81.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1593604572577-1c6c44fa246c" alt="Naples">
+                            <div class="badge">NEW</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Naples</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$81.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1610016302534-6f67f1c968d8" alt="Milan">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Milan</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$87.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0" alt="Brussels">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Brussels</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$101.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1514896856000-91cb6de818e0" alt="Krakow">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Krakow</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$101.98</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1603565816230-45764a231c84" alt="Athens">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Athens</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$92.98</div>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="destination-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1490644658840-3f2e3f8c5625" alt="Lisbon">
+                        </div>
+                        <div class="card-content">
+                            <div class="destination-name">Lisbon</div>
+                            <div class="destination-info">
+                                <div class="flight-info">
+                                    <i class="fas fa-plane-departure icon"></i>
+                                    Direct flight
+                                </div>
+                                <div class="price">$79.98</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <a href="#" class="view-all">View all destinations <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+        
+        <section class="promo-box-section">
+            <div class="promo-box-container">
+                <div class="promo-box">
+                    <div class="new-badge">NEW</div>
+                    <h2>Your Dream Destination is Just a Few Clicks Away!</h2>
+                    <p>Explore our fantastic destinations with special discounts and offers. Book now and save up to <span class="highlight">30%</span> on your next adventure!</p>
+                    <a href="#" class="btn-explore">Explore All Offers</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -206,13 +440,14 @@
                             <li><a href="#">Travel Insurance</a></li>
                             <li><a href="#">SkyJet+ Membership</a></li>
                         </ul>
-                    </div>
-                    <div class="footer-column">
+                    </div>                    <div class="footer-column">
                         <h3>Newsletter</h3>
                         <p>Subscribe for travel deals and offers</p>
-                        <div class="newsletter-form">
-                            <input type="email" placeholder="Your email address">
-                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        <div class="newsletter-wrapper">
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Your email address" class="newsletter-input">
+                                <button type="submit" class="newsletter-submit">Submit</button>
+                            </form>
                         </div>
                         <div class="app-buttons">
                             <a href="#" class="app-button" aria-label="Download on the App Store">
@@ -239,8 +474,9 @@
                         <i class="fab fa-cc-apple-pay"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </footer>    <script src="js/combined-scripts.js"></script>
+            </div>        </div>    </footer>    <script src="js/combined-scripts.js"></script>
+    <script src="js/small-screen-enhancements.js"></script>
+    <script src="js/image-fallbacks.js"></script>
+    <script src="js/background-loader.js"></script>
 </body>
 </html>

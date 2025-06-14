@@ -215,16 +215,7 @@ ul {
     border-bottom: 3px solid var(--primary-color);
 }
 
-.discount-badge {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    background-color: var(--secondary-color);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-weight: bold;
-}
+/* Removed discount badge */
 
 /* Search Options */
 .search-options {
@@ -884,7 +875,7 @@ nav a {
         margin-top: 15px;
         justify-content: center;
     }
-}
+
 
 @media (max-width: 576px) {
     .logo-text {

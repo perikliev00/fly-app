@@ -1,0 +1,132 @@
+/* Newsletter form improvements */
+.newsletter-form {
+    position: relative;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 12px 15px;
+    padding-right: 30px; /* Reduced right padding */
+    border: none;
+    font-size: 14px;
+    color: #333;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.newsletter-input::placeholder {
+    color: #7b8a9a;
+    opacity: 1;
+    font-size: 13px;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+.newsletter-input.error {
+    border: 1px solid #ff3b30;
+    box-shadow: inset 0 0 0 1px #ff3b30;
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translateX(-1px);
+    }
+    20%, 80% {
+        transform: translateX(2px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-2px);
+    }
+    40%, 60% {
+        transform: translateX(1px);
+    }
+}
+
+.newsletter-submit {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 5px;  /* Position extreme right */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+}
+
+.newsletter-submit:hover {
+    color: #e05c00;
+}
+
+.newsletter-submit:focus {
+    outline: none;
+}
+
+.newsletter-submit i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    color: var(--secondary-color);
+    /* Position exactly at the edge */
+    margin-right: -2px;
+}
+
+.newsletter-submit:hover i {
+    transform: translateX(0);  /* Changed to not move on hover */
+    color: #e05c00;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .newsletter-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter-input {
+        padding: 10px 25px 10px 12px;
+        font-size: 13px;
+    }
+    
+    .newsletter-submit {
+        right: 4px;
+    }
+    
+    .newsletter-submit i {
+        font-size: 15px;
+    }
+}
+
+/* Fix specific to tiny screens */
+@media (max-width: 320px) {
+    .newsletter-form {
+        width: 100%;
+    }
+    
+    .newsletter-input {
+        padding: 10px 25px 10px 12px;
+        font-size: 13px;
+    }
+    
+    .newsletter-submit {
+        right: 3px;
+    }
+    
+    .newsletter-submit i {
+        font-size: 14px;
+    }
+}

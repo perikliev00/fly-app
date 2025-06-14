@@ -1,0 +1,211 @@
+/* Popular destinations section styles */
+.destinations-section {
+    background-color: #f5f8fb;
+    padding: 60px 0;
+}
+
+.destinations-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: #666;
+    font-size: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.destination-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.destination-card:hover,
+.destination-card.touch-hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-image {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.destination-card:hover .card-image img,
+.destination-card.touch-hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 15px;
+    position: relative;
+}
+
+.destination-name {
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+.destination-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flight-info {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.flight-info .icon {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.view-all {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.2s;
+}
+
+.view-all:hover {
+    color: var(--secondary-color);
+}
+
+.view-all i {
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.view-all:hover i {
+    transform: translateX(3px);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .destinations-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .destinations-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .section-heading h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 576px) {
+    .destinations-section {
+        padding: 40px 0;
+    }
+    
+    .section-heading {
+        margin-bottom: 25px;
+    }
+    
+    .section-heading h2 {
+        font-size: 24px;
+    }
+    
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .card-image {
+        height: 160px;
+    }
+}
+
+@media (max-width: 400px) {
+    .section-heading h2 {
+        font-size: 22px;
+    }
+    
+    .section-heading p {
+        font-size: 14px;
+    }
+    
+    .card-content {
+        padding: 12px;
+    }
+    
+    .destination-name {
+        font-size: 16px;
+    }
+    
+    .price {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .flight-info {
+        font-size: 12px;
+    }
+    
+    .price {
+        font-size: 18px;
+    }
+}

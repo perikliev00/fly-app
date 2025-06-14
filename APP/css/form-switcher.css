@@ -1,0 +1,96 @@
+/* Form Switcher Styles */
+.form-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced tab button styling */
+.tab-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tab-btn:hover {
+    background-color: rgba(240, 248, 255, 0.1);
+}
+
+/* Focus state styling for tabs */
+.tab-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Smooth transitions for form fields */
+.input-field {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.form-content:not(.active) .input-field {
+    transform: translateY(5px);
+    opacity: 0;
+}
+
+.form-content.active .input-field {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Staggered animation for form fields */
+.form-content.active .field-group:nth-child(1) .input-field {
+    transition-delay: 0.05s;
+}
+
+.form-content.active .field-group:nth-child(2) .input-field {
+    transition-delay: 0.1s;
+}
+
+.form-content.active .field-group:nth-child(3) .input-field {
+    transition-delay: 0.15s;
+}
+
+/* Making sure all forms have consistent height */
+.search-options {
+    min-height: 240px; /* Set this to your preferred minimum height */
+}
+
+@media (max-width: 768px) {
+    .search-options {
+        min-height: 320px; /* Adjust for mobile view */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-options {
+        min-height: 360px; /* Adjust for smaller screens */
+    }
+}

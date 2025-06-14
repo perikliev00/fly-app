@@ -1,0 +1,78 @@
+.promo-banner {
+    position: relative;
+    background-image: url('../images/mountains-background.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    height: 450px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Add an overlay to ensure text is readable */
+.promo-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.promo-content {
+    max-width: 800px;
+    padding: 30px;
+}
+
+.promo-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+}
+
+.promo-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .promo-banner {
+        height: 350px;
+        background-attachment: scroll; /* Better mobile performance */
+    }
+    
+    .promo-content h1 {
+        font-size: 2rem;
+    }
+    
+    .promo-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-banner {
+        height: 300px;
+    }
+    
+    .promo-content h1 {
+        font-size: 1.6rem;
+    }
+}
