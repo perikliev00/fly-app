@@ -1,0 +1,105 @@
+/* 
+ * Navigation Breakpoint Fix - 1000px
+ * This file ensures clean navigation transitions at 1000px breakpoint
+ */
+
+/* Mobile navigation toggle button */
+.menu-toggle {
+    cursor: pointer;
+    display: none !important; /* Hidden by default, shown only at the breakpoint */
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 1001;
+    position: relative;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Breakpoint for mobile navigation - 1000px */
+@media (max-width: 1000px) {
+    /* Show toggle button */
+    .menu-toggle {
+        display: block !important;
+    }
+    
+    /* Hide desktop navigation completely */
+    .nav-menu {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Only show if has the .show class - controlled by JavaScript */
+    .nav-menu.show {
+        display: block !important;
+    }
+    
+    /* Style menu items as vertical stack */
+    .nav-menu > li {
+        display: block;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0;
+    }
+    
+    .nav-menu > li > a {
+        padding: 12px 15px;
+        display: block;
+        color: white;
+        text-align: left;
+    }
+    
+    /* Dropdown styling for mobile */
+    .has-dropdown .dropdown-menu {
+        position: static !important;
+        width: 100%;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.1);
+        display: none;
+        padding: 0;
+    }
+    
+    .has-dropdown .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    .has-dropdown .dropdown-menu a {
+        padding: 10px 25px;
+        color: white;
+    }
+    
+    /* Special classes for navigation elements */
+    .login-item, .lang-item {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .login-item a, .lang-item a {
+        padding: 12px 15px;
+    }
+    
+    /* Mobile style dropdown indicators */
+    .dropdown-trigger i.fa-chevron-down {
+        float: right;
+        margin-top: 4px;
+        transition: transform 0.3s;
+    }
+    
+    .dropdown-trigger.active i.fa-chevron-down {
+        transform: rotate(180deg);
+    }
+}
+
+/* Style the mobile menu even if it somehow appears on desktop */
+.nav-menu.show .dropdown-menu.show {
+    display: block !important;
+}

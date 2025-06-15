@@ -12,12 +12,17 @@
     <link rel="stylesheet" href="css/destinations.css">
     <link rel="stylesheet" href="css/promo-box.css">
     <link rel="stylesheet" href="css/form-switcher.css">
-    <link rel="stylesheet" href="css/form-switcher-responsive.css">    <link rel="stylesheet" href="css/passenger-display-fix.css">    <link rel="stylesheet" href="css/newsletter-fix.css">
+    <link rel="stylesheet" href="css/form-switcher-responsive.css">
+    <link rel="stylesheet" href="css/tab-fix.css">
+    <link rel="stylesheet" href="css/passenger-display-fix.css">    
+    <link rel="stylesheet" href="css/newsletter-fix.css">
     <link rel="stylesheet" href="css/mobile-newsletter-fix.css">
     <link rel="stylesheet" href="css/newsletter-button-mobile.css">
     <link rel="stylesheet" href="css/background-image.css">
     <link rel="stylesheet" href="css/parallax-banner.css">
-    <link rel="stylesheet" href="css/direct-background.css">
+    <link rel="stylesheet" href="css/direct-background.css">    <link rel="stylesheet" href="css/navigation-fixes.css">
+    <link rel="stylesheet" href="css/nav-1000px-fix.css">
+    <link rel="stylesheet" href="css/simple-mobile-nav-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -105,130 +110,148 @@
                     </div>                    <div class="search-options">
                         <!-- Flight Form -->
                         <div id="flight-form" class="form-content active">
-                            <div class="trip-type">
-                                <label class="radio-container">
-                                    <input type="radio" name="trip-type" checked>
-                                    <span class="radio-custom"></span>
-                                    Round Trip
-                                </label>
-                                <label class="radio-container">
-                                    <input type="radio" name="trip-type">
-                                    <span class="radio-custom"></span>
-                                    One Way
-                                </label>
-                            </div>
+                            <form action="/book-flight" method="post" id="flight-booking-form">
+                                <div class="trip-type">
+                                    <label class="radio-container">
+                                        <input type="radio" name="trip-type" value="round-trip" checked>
+                                        <span class="radio-custom"></span>
+                                        Round Trip
+                                    </label>
+                                    <label class="radio-container">
+                                        <input type="radio" name="trip-type" value="one-way">
+                                        <span class="radio-custom"></span>
+                                        One Way
+                                    </label>
+                                </div>
 
-                            <div class="search-fields">
-                                <div class="field-group">
-                                    <div class="input-field origin">
-                                        <label for="flight-origin">Departure</label>
-                                        <input type="text" id="flight-origin" placeholder="City or airport">
-                                    </div>
-                                    <div class="input-field destination">
-                                        <label for="flight-destination">Destination</label>
-                                        <input type="text" id="flight-destination" placeholder="City or airport">
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <div class="input-field date">
-                                        <label for="flight-depart-date">Departing</label>
-                                        <div class="date-display">
-                                            <span class="date-label">15 June 2025</span>
+                                <div class="search-fields">
+                                    <div class="field-group">
+                                        <div class="input-field origin">
+                                            <label for="flight-origin">Departure</label>
+                                            <input type="text" id="flight-origin" name="flight-origin" placeholder="City or airport">
+                                        </div>
+                                        <div class="input-field destination">
+                                            <label for="flight-destination">Destination</label>
+                                            <input type="text" id="flight-destination" name="flight-destination" placeholder="City or airport">
                                         </div>
                                     </div>
-                                    <div class="input-field date">
-                                        <label for="flight-return-date">Returning</label>
-                                        <div class="date-display">
-                                            <span class="date-label">Round Trip</span>
+                                    <div class="field-group">
+                                        <div class="input-field date">
+                                            <label for="flight-depart-date">Departing</label>
+                                            <input type="hidden" id="flight-depart-date" name="flight-depart-date" value="2025-06-15">
+                                            <div class="date-display">
+                                                <span class="date-label">15 June 2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="input-field date">
+                                            <label for="flight-return-date">Returning</label>
+                                            <input type="hidden" id="flight-return-date" name="flight-return-date" value="">
+                                            <div class="date-display">
+                                                <span class="date-label">Round Trip</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="field-group passengers">                                    <div class="input-field">
-                                        <label>Travelers</label>
-                                        <div class="passenger-display">
-                                            <i class="fas fa-user"></i> <span>1 Adult</span>
-                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                    <div class="field-group passengers">
+                                        <div class="input-field">
+                                            <label>Travelers</label>
+                                            <input type="hidden" id="flight-travelers" name="flight-travelers" value="1 Adult">
+                                            <div class="passenger-display">
+                                                <i class="fas fa-user"></i> <span>1 Adult</span>
+                                                <i class="fas fa-chevron-down ml-auto"></i>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="search-btn">
+                                            <i class="fas fa-search"></i> Search Flights
+                                        </button>
                                     </div>
-                                    <button class="search-btn">
-                                        <i class="fas fa-search"></i> Search Flights
-                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                         <!-- Hotel Form -->
                         <div id="hotel-form" class="form-content">
-                            <div class="search-fields">
-                                <div class="field-group">
-                                    <div class="input-field destination">
-                                        <label for="hotel-destination">Destination</label>
-                                        <input type="text" id="hotel-destination" placeholder="City or hotel name">
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <div class="input-field date">
-                                        <label for="hotel-check-in">Check-in</label>
-                                        <div class="date-display">
-                                            <span class="date-label">15 June 2025</span>
+                            <form action="/book-hotel" method="post" id="hotel-booking-form">
+                                <div class="search-fields">
+                                    <div class="field-group">
+                                        <div class="input-field destination">
+                                            <label for="hotel-destination">Destination</label>
+                                            <input type="text" id="hotel-destination" name="hotel-destination" placeholder="City or hotel name">
                                         </div>
                                     </div>
-                                    <div class="input-field date">
-                                        <label for="hotel-check-out">Check-out</label>
-                                        <div class="date-display">
-                                            <span class="date-label">22 June 2025</span>
+                                    <div class="field-group">
+                                        <div class="input-field date">
+                                            <label for="hotel-check-in">Check-in</label>
+                                            <input type="hidden" id="hotel-check-in" name="hotel-check-in" value="2025-06-15">
+                                            <div class="date-display">
+                                                <span class="date-label">15 June 2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="input-field date">
+                                            <label for="hotel-check-out">Check-out</label>
+                                            <input type="hidden" id="hotel-check-out" name="hotel-check-out" value="2025-06-22">
+                                            <div class="date-display">
+                                                <span class="date-label">22 June 2025</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="field-group">                                    <div class="input-field">
-                                        <label>Rooms & Guests</label>
-                                        <div class="passenger-display">
-                                            <i class="fas fa-users"></i> <span>1 Room, 2 Guests</span>
-                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                    <div class="field-group">
+                                        <div class="input-field">
+                                            <label>Rooms & Guests</label>
+                                            <input type="hidden" id="hotel-rooms-guests" name="hotel-rooms-guests" value="1 Room, 2 Guests">
+                                            <div class="passenger-display">
+                                                <i class="fas fa-users"></i> <span>1 Room, 2 Guests</span>
+                                                <i class="fas fa-chevron-down ml-auto"></i>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="search-btn">
+                                            <i class="fas fa-search"></i> Search Hotels
+                                        </button>
                                     </div>
-                                    <button class="search-btn">
-                                        <i class="fas fa-search"></i> Search Hotels
-                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                         <!-- Car Rental Form -->
                         <div id="car-form" class="form-content">
-                            <div class="search-fields">
-                                <div class="field-group">
-                                    <div class="input-field origin">
-                                        <label for="car-pickup">Pick-up Location</label>
-                                        <input type="text" id="car-pickup" placeholder="City or airport">
-                                    </div>
-                                </div>
-                                <div class="field-group">
-                                    <div class="input-field date">
-                                        <label for="car-pickup-date">Pick-up Date</label>
-                                        <div class="date-display">
-                                            <span class="date-label">15 June 2025</span>
+                            <form action="/book-car" method="post" id="car-booking-form">
+                                <div class="search-fields">
+                                    <div class="field-group">
+                                        <div class="input-field origin">
+                                            <label for="car-pickup">Pick-up Location</label>
+                                            <input type="text" id="car-pickup" name="car-pickup" placeholder="City or airport">
                                         </div>
                                     </div>
-                                    <div class="input-field date">
-                                        <label for="car-return-date">Return Date</label>
-                                        <div class="date-display">
-                                            <span class="date-label">22 June 2025</span>
+                                    <div class="field-group">
+                                        <div class="input-field date">
+                                            <label for="car-pickup-date">Pick-up Date</label>
+                                            <input type="hidden" id="car-pickup-date" name="car-pickup-date" value="2025-06-15">
+                                            <div class="date-display">
+                                                <span class="date-label">15 June 2025</span>
+                                            </div>
+                                        </div>
+                                        <div class="input-field date">
+                                            <label for="car-return-date">Return Date</label>
+                                            <input type="hidden" id="car-return-date" name="car-return-date" value="2025-06-22">
+                                            <div class="date-display">
+                                                <span class="date-label">22 June 2025</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="field-group">                                    <div class="input-field">
-                                        <label>Car Type</label>
-                                        <div class="passenger-display">
-                                            <i class="fas fa-car"></i> <span>Economy</span>
-                                            <i class="fas fa-chevron-down ml-auto"></i>
+                                    <div class="field-group">
+                                        <div class="input-field">
+                                            <label>Car Type</label>
+                                            <input type="hidden" id="car-type" name="car-type" value="Economy">
+                                            <div class="passenger-display">
+                                                <i class="fas fa-car"></i> <span>Economy</span>
+                                                <i class="fas fa-chevron-down ml-auto"></i>
+                                            </div>
                                         </div>
+                                        <button type="submit" class="search-btn">
+                                            <i class="fas fa-search"></i> Search Cars
+                                        </button>
                                     </div>
-                                    <button class="search-btn">
-                                        <i class="fas fa-search"></i> Search Cars
-                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -476,7 +499,11 @@
                 </div>
             </div>        </div>    </footer>    <script src="js/combined-scripts.js"></script>
     <script src="js/small-screen-enhancements.js"></script>
-    <script src="js/image-fallbacks.js"></script>
-    <script src="js/background-loader.js"></script>
+    <script src="js/image-fallbacks.js"></script>    <script src="js/background-loader.js"></script>    <script src="js/responsive-navigation-fix.js"></script>
+    <script src="js/menu-toggle-fix.js"></script>
+    <script src="js/menu-toggle-priority.js"></script>
+    <script src="js/navigation-fix-1000px.js"></script>
+    <script src="js/simple-mobile-nav-fix.js"></script>
+    <script src="js/tab-functionality-fix.js"></script>
 </body>
 </html>

@@ -1,0 +1,100 @@
+/* Navigation fixes for different screen sizes */
+
+/* Ensure the menu toggle button is visible and properly styled in mobile mode */
+.menu-toggle {
+    cursor: pointer;
+    display: none;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    z-index: 1001;  /* Ensure it's above other elements */
+    position: relative;
+    outline: none;  /* Remove outline for a cleaner look */
+    -webkit-tap-highlight-color: transparent; /* Remove default mobile tap highlight */
+}
+
+/* Add a highlight effect when the menu toggle is clicked */
+.menu-toggle.touch-active,
+.menu-toggle:active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transform: scale(0.95); /* Slight scale effect for better visual feedback */
+    transition: all 0.2s ease;
+}
+
+/* Mobile styles */
+@media (max-width: 1000px) {
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+    
+    .nav-menu.show {
+        display: block !important;
+    }
+    
+    .nav-menu li {
+        display: block;
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu a {
+        padding: 12px 15px;
+        display: block;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        display: none;
+        padding-left: 15px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    .has-dropdown > a:after {
+        content: '';
+        display: inline-block;
+        margin-left: 8px;
+        border-top: 5px solid;
+        border-right: 5px solid transparent;
+        border-left: 5px solid transparent;
+        vertical-align: middle;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1001px) {
+    .nav-menu {
+        display: flex !important;
+    }
+    
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        background-color: var(--primary-color);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .has-dropdown:hover .dropdown-menu,
+    .dropdown-menu.show {
+        display: block;
+    }
+}

@@ -9,6 +9,7 @@
     cursor: pointer;
     font-size: 15px;
     transition: all 0.3s ease;
+
 }
 
 .passenger-display:hover {
@@ -51,11 +52,22 @@
     .passenger-display i.fas.fa-car {
         font-size: 13px;
     }
+        div .input-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
+    div .input-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
     .passenger-display {
         padding: 8px 10px;
         font-size: 14px;
+        display: block;
     }
 }

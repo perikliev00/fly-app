@@ -115,7 +115,7 @@ ul {
 }
 
 /* Desktop navigation dropdowns */
-@media (min-width: 769px) {
+@media (min-width: 1001px) {
     .dropdown-menu {
         position: absolute;
         top: 100%;
@@ -583,7 +583,7 @@ footer {
 }
 
 /* Mobile styles */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     /* Mobile Navigation */
     .menu-toggle {
         display: block;

@@ -1,0 +1,27 @@
+/* 
+ * Simple Mobile Navigation CSS Fix
+ * Ensures dropdowns only work on click in mobile view
+ */
+
+/* Mobile-specific styles (overrides hover behavior) */
+@media (max-width: 1000px) {
+    /* Disable hover behavior for dropdowns */
+    .has-dropdown:hover .dropdown-menu {
+        display: none !important;
+    }
+    
+    /* Dropdown menus are hidden by default */
+    .dropdown-menu {
+        display: none !important;
+    }
+    
+    /* Only show when specifically toggled */
+    .dropdown-menu.show {
+        display: block !important;
+    }
+    
+    /* Style active dropdown triggers */
+    .dropdown-trigger.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}

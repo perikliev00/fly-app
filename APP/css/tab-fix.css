@@ -1,0 +1,64 @@
+/* Additional form switcher styles for proper tab functionality */
+.form-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.form-content.active {
+    display: block !important; /* Ensure visibility with !important to override other styles */
+}
+
+/* Enhanced tab button styling */
+.tab-btn {
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.tab-btn:focus {
+    outline: none;
+}
+
+.tab-btn:hover {
+    background-color: rgba(0, 102, 204, 0.1);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Ensure tab buttons work well on all screen sizes */
+@media (max-width: 576px) {
+    .tab-btn {
+        padding: 10px 5px;
+        font-size: 0.9rem;
+    }
+    
+    .tab-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+/* Improve form transitions */
+.search-options {
+    position: relative;
+}
+
+/* Fix for forms to ensure they work properly with backend */
+form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+button[type="submit"].search-btn {
+    cursor: pointer;
+}
+
+button[type="submit"].search-btn:hover {
+    background-color: var(--accent-color-dark);
+}

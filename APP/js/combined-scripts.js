@@ -111,40 +111,45 @@ document.addEventListener('DOMContentLoaded', function() {
             <circle cx="20" cy="20" r="5" fill="#ff6600"/>
         </svg>`;
     }
-    
-    // Mobile menu toggle functionality
-    const menuToggle = document.getElementById('menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
+      // Mobile menu toggle and dropdown functionality
+    // Note: The actual menu toggle click functionality is now handled in menu-toggle-fix.js
+    // to avoid conflicts and ensure proper functionality after window resize
+    let navMenu = document.getElementById('nav-menu');
     const dropdownTriggers = document.querySelectorAll('.dropdown-trigger');
     
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = navMenu.classList.toggle('show');
-            menuToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-        });
-        
-        // Close the mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const isClickInsideMenu = navMenu.contains(event.target);
-            const isClickOnToggle = menuToggle.contains(event.target);
-            
-            if (!isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-                
-                // Also close any open dropdowns
-                dropdownTriggers.forEach(trigger => {
-                    trigger.classList.remove('active');
-                    const dropdownMenu = trigger.nextElementSibling;
-                    if (dropdownMenu && dropdownMenu.classList.contains('show')) {
-                        dropdownMenu.classList.remove('show');
-                    }
-                });
-            }
-        });
+    // Refresh the navMenu reference before use to avoid errors
+    function refreshNavMenuReference() {
+        navMenu = document.getElementById('nav-menu');
+        return navMenu;
     }
-      // Mobile dropdown functionality
+    
+    // Close the mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const navMenuElement = document.getElementById('nav-menu'); // Get fresh reference
+        const menuToggleElement = document.getElementById('menu-toggle'); // Get fresh reference
+        
+        // Skip if elements don't exist
+        if (!navMenuElement || !menuToggleElement) return;
+        
+        const isClickInsideMenu = navMenuElement.contains(event.target);
+        const isClickOnToggle = menuToggleElement.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnToggle && navMenuElement.classList.contains('show')) {
+            navMenuElement.classList.remove('show');
+            
+            // Also close any open dropdowns
+            dropdownTriggers.forEach(trigger => {
+                trigger.classList.remove('active');
+                const dropdownMenu = trigger.nextElementSibling;
+                if (dropdownMenu && dropdownMenu.classList.contains('show')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        }
+    });
+    });    // Mobile dropdown functionality
     function setupMobileDropdowns() {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1000) {
             dropdownTriggers.forEach(trigger => {
                 // Remove any previous event listeners first by cloning and replacing
                 const newTrigger = trigger.cloneNode(true);
@@ -188,12 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial setup
     setupMobileDropdowns();
-    
-    // Close mobile menu and dropdowns when window is resized to desktop
+      // Close mobile menu and dropdowns when window is resized to desktop
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            if (navMenu && navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
+        // Get a fresh reference to navMenu
+        const currentNavMenu = document.getElementById('nav-menu');
+        
+        if (window.innerWidth > 1000) {
+            if (currentNavMenu && currentNavMenu.classList.contains('show')) {
+                currentNavMenu.classList.remove('show');
             }
             
             // Reset active states for dropdowns
@@ -201,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 menu.classList.remove('show');
             });
         }
-    });    // Newsletter form validation with improved feedback
+    });// Newsletter form validation with improved feedback
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
         const emailInput = newsletterForm.querySelector('.newsletter-input');
@@ -250,4 +257,3 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
