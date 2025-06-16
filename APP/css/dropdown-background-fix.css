@@ -1,0 +1,22 @@
+/* 
+ * Dropdown Background Color Fix 
+ * Changes the background color of dropdown menus that appear on hover
+ */
+
+@media (min-width: 1001px) {
+    /* Change dropdown menu background color */
+    .dropdown-menu {
+        background-color: #f0f8ff !important; /* Light blue color */
+        border: 1px solid #e1ebf7;
+    }
+    
+    /* Add a slight border radius for a better look */
+    .dropdown-menu {
+        border-radius: 5px !important;
+    }
+    
+    /* Style the dropdown items hover state */
+    .dropdown-menu a:hover {
+        background-color: rgba(0, 102, 204, 0.1) !important;
+    }
+}

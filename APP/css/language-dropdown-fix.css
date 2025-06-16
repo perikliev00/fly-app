@@ -1,0 +1,48 @@
+/* 
+ * Language Dropdown Fix
+ * Ensures language dropdown works correctly on mobile
+ */
+
+/* Mobile-specific fixes for language dropdown */
+@media (max-width: 1000px) {
+    /* Make sure lang-item has proper styling */
+    .lang-item {
+        position: relative;
+    }
+    
+    /* Ensure language dropdown appears correctly */
+    .lang-item .dropdown-menu.show {
+        display: block !important;
+        width: 100%;
+        position: static;
+    }
+    
+    /* Style the language dropdown trigger icon */
+    .lang-item .dropdown-trigger i.fa-chevron-down {
+        float: right;
+        margin-top: 4px;
+        display: block !important;
+        transition: transform 0.3s;
+    }
+    
+    /* Fix padding for language dropdown items */
+    .lang-item .dropdown-menu a {
+        padding: 10px 25px !important;
+        display: block;
+        width: 100%;
+    }
+    
+    /* Add active state styling */
+    .lang-item .dropdown-trigger.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Desktop style for language dropdown */
+@media (min-width: 1001px) {
+    /* Ensure language dropdown appears on right side */
+    .lang-dropdown {
+        right: 0;
+        left: auto !important;
+    }
+}

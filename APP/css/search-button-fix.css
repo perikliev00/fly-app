@@ -1,0 +1,44 @@
+/* 
+ * Search Button Alignment Fix
+ * Ensures the search button is properly aligned in all tabs
+ */
+
+/* Fix for alignment in all forms */
+.search-fields .field-group {
+    display: flex;
+    align-items: flex-end; /* Align items to bottom */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+/* Ensure consistent button placement */
+.search-btn {
+    height: 46px !important; /* Ensure consistent height */
+    align-self: flex-end; /* Align to bottom of container */
+    margin-top: auto; /* Push to bottom */
+    transition: background-color 0.3s ease, transform 0.1s ease !important;
+}
+
+/* Change hover color for search button */
+.search-btn:hover {
+    background-color: #0066aa !important; /* Bluish hover color */
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Fix specifically for hotel and car rental forms */
+#hotel-form .search-btn,
+#car-form .search-btn {
+    margin-top: 27px; /* Align with input fields by adding top margin */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #hotel-form .search-btn,
+    #car-form .search-btn,
+    #flight-form .search-btn {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
